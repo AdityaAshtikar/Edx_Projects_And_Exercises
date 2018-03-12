@@ -38,7 +38,7 @@ class OddsAndEvens{
     System.out.println("______________________________________________________________________________");
     System.out.println();
 
-    while(play(console, name, choice, UserScore, computerScore).startsWith("y") && !play(console, name, choice, UserScore, computerScore).startsWith("n")){
+    while(play(console, name, choice, UserScore, computerScore).startsWith("y")){
       play(console, name, choice, UserScore, computerScore);
     }
 
