@@ -1,8 +1,12 @@
-import java.util.*;
+import java.util.Random;
+import java.io.*;
 
 class OddsAndEvens{
+  static int UserScore = 0;
+  static int computerScore = 0;
+
   public static void main(String args[]){
-    Scanner console = new Scanner(System.in);
+    BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
     String name = "", choice="";
 
     System.out.println("______________________________________________________________________________");
@@ -11,14 +15,14 @@ class OddsAndEvens{
 
     System.out.print("What is your name? ");
     try{
-      name = console.nextLine();
+      name = console.readLine();
     } catch(Exception e){
       System.out.println("Error while name input: " + e);
     }
 
     System.out.print("Hi " + name + ", which do you choose? (O)dds or (E)vens? ");
     try{
-      choice = console.nextLine().toLowerCase();
+      choice = console.readLine().toLowerCase();
     } catch(Exception e){
       System.out.println("Error while Choosing Odd or Even: " + e);
     }
@@ -34,36 +38,29 @@ class OddsAndEvens{
     System.out.println("______________________________________________________________________________");
     System.out.println();
 
-    String playAgain = "y";
-    while(playAgain.startsWith("y")){
-      play(console, name, choice);
-      System.out.println("How does the Score look like " + name + ", Want to Play again?(y or n)");
-      playAgain = console.nextLine().toLowerCase();
-      if(playAgain.startsWith("n")){
-        System.out.println("Thanks for playing..See you soon!");
-      }
+    while(play(console, name, choice, UserScore, computerScore).startsWith("y") && !play(console, name, choice, UserScore, computerScore).startsWith("n")){
+      play(console, name, choice, UserScore, computerScore);
     }
 
   }
 
-  public static void play(Scanner console, String name, String choice){
+  public static String play(BufferedReader console, String name, String choice, int UserScore, int computerScore){
     int numberOfFingers = 0;
+
     System.out.println("How many 'fingers' do you put out?(You can only put out 5 fingers)");
     try{
-      numberOfFingers = console.nextInt();
+      numberOfFingers = Integer.parseInt(console.readLine());
     } catch(Exception e1){
       System.out.println("Error while, taking number of fingers: " + e1);
     }
     if(numberOfFingers > 5){
       System.out.println("You cannot put out more than 5 fingers " + name);
       System.out.println("Let's try again!");
-      play(console, name, choice);
+      play(console, name, choice, UserScore, computerScore);
     }
 
     Random rand = new Random();
     int computerFingers = rand.nextInt(6);
-    int UserScore = 0;
-    int computerScore = 0;
 
     System.out.println("The computer played: " + computerFingers);
 
@@ -100,5 +97,27 @@ class OddsAndEvens{
 
     System.out.println("______________________________________________________________________________");
 
+    System.out.println();
+
+    System.out.println("How does the Score look like " + name + ", Want to Play again?(y or n)");
+
+    String playAgain = "";
+
+    try{
+      playAgain = console.readLine().toLowerCase();
+    } catch(Exception e3){
+      System.out.println("Error in function for playAgain: " + e3);
+    }
+
+    if(playAgain.startsWith("y")){
+      System.out.println("Starting another game-");
+      return playAgain;
+    }
+    else{
+      System.out.println("Thank you for playing, see you soon..");
+      return playAgain;
+    }
+
   }
+
 }
