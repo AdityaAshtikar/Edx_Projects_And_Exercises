@@ -4,6 +4,8 @@ import java.io.*;
 class OddsAndEvens{
   static int UserScore = 0;
   static int computerScore = 0;
+  static ArrayList<Integer> UserScoreArray = new ArrayList<Integer>();
+  static ArrayList<Integer> computerScoreArray = new ArrayList<Integer>();
 
   public static void main(String args[]){
     BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
@@ -46,8 +48,6 @@ class OddsAndEvens{
 
   public static String play(BufferedReader console, String name, String choice, int UserScore, int computerScore){
     int numberOfFingers = 0;
-    ArrayList<Integer> UserScoreArray = new ArrayList<Integer>();
-    ArrayList<Integer> computerScoreArray = new ArrayList<Integer>();
 
     UserScoreArray.add(0);
     computerScoreArray.add(0);
@@ -104,6 +104,10 @@ class OddsAndEvens{
         }
     }
 
+    System.out.println("______________________________________________________________________________");
+    System.out.println(name + "'s Array List contents: " + "\n" + UserScoreArray);
+    System.out.println("______________________________________________________________________________");
+    System.out.println("Computer's Array List contents: " + "\n" + computerScoreArray);
     System.out.println("______________________________________________________________________________");
 
     System.out.println();
