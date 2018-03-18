@@ -40,13 +40,13 @@ class OddsAndEvens{
     System.out.println("______________________________________________________________________________");
     System.out.println();
 
-    while(play(console, name, choice, UserScore, computerScore).startsWith("y")){
-      play(console, name, choice, UserScore, computerScore);
+    while(play(console, name, choice).startsWith("y")){
+      play(console, name, choice);
     }
 
   }
 
-  public static String play(BufferedReader console, String name, String choice, int UserScore, int computerScore){
+  public static String play(BufferedReader console, String name, String choice){
     int numberOfFingers = 0;
 
     UserScoreArray.add(0);
@@ -61,7 +61,7 @@ class OddsAndEvens{
     if(numberOfFingers > 5){
       System.out.println("You cannot put out more than 5 fingers " + name);
       System.out.println("Let's try again!");
-      play(console, name, choice, UserScore, computerScore);
+      play(console, name, choice);
     }
 
     Random rand = new Random();
@@ -78,14 +78,18 @@ class OddsAndEvens{
         System.out.println("The Winner is " + name);
         UserScore++;
         UserScoreArray.add(UserScore);
-        System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
-        System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
+        System.out.println(name + "'s score: " + UserScore);
+        System.out.println("Computer's score: " + computerScore);
+        // System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
+        // System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
       } else{
         System.out.println("The Winner is Computer");
         computerScore++;
         computerScoreArray.add(computerScore);
-        System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
-        System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
+        System.out.println(name + "'s score: " + UserScore);
+        System.out.println("Computer's score: " + computerScore);
+        // System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
+        // System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
       }
     } else{
         System.out.println(sum + " is. . . . Odd");
@@ -93,14 +97,18 @@ class OddsAndEvens{
           System.out.println("The Winner is " + name);
           UserScore++;
           UserScoreArray.add(UserScore);
-          System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
-          System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
+          System.out.println(name + "'s score: " + UserScore);
+          System.out.println("Computer's score: " + computerScore);
+          // System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
+          // System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
         } else{
           System.out.println("The Winner is Computer");
           computerScore++;
           computerScoreArray.add(computerScore);
-          System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
-          System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
+          System.out.println(name + "'s score: " + UserScore);
+          System.out.println("Computer's score: " + computerScore);
+          // System.out.println(name + "'s score: " + UserScoreArray.get(UserScoreArray.size() - 1));
+          // System.out.println("Computer's score: " + computerScoreArray.get(computerScoreArray.size() - 1));
         }
     }
 
